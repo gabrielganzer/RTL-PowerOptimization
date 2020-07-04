@@ -3,9 +3,6 @@ proc dualVth {args} {
         parse_proc_arguments -args $args results
         set savings $results(-leakage)
 	
-	#For control only
-	set start_time [clock milliseconds]
-	
 	suppress_message NED-045
 	suppress_message LNK-041
 	suppress_message LNK-016
@@ -109,7 +106,7 @@ proc dualVth {args} {
 	}
 	
 	#In case the amount of savings required was not achieved in the first round that guarantees a positive slack
-	#starting swapping the cells with higher slacks into HVT (the critical cells are the last ones in the get_max_slack list)
+	#start swapping the cells with higher slacks into HVT (the critical cells are the last ones in the get_max_slack list)
 	
 	foreach tuple [get_max_slack] {
 
@@ -149,11 +146,6 @@ proc dualVth {args} {
 			}
                 }
 	}
-	#Following commands can be deleted for the final version (they are used for control only)
-	set end_time [clock milliseconds]
-	set saved [expr ($start_power - [get_attribute [get_design] leakage_power])/$start_power]
-	puts "Started: $start_power | Ended: [get_attribute [get_design] leakage_power] | Slack: [get_attribute [get_timing_paths] slack] | Saved: $saved"
-	puts "Dynamic: [get_attribute [get_design] dynamic_power] Execution : [expr ($end_time - $start_time)/1000.0] s"
 }
 
 define_proc_attributes dualVth \
