@@ -2,7 +2,10 @@ proc dualVth {args} {
 
         parse_proc_arguments -args $args results
         set savings $results(-leakage)
-		
+	
+	#For control only
+	set start_time [clock milliseconds]
+	
 	suppress_message NED-045
 	suppress_message LNK-041
 	suppress_message LNK-016
@@ -10,22 +13,15 @@ proc dualVth {args} {
 	suppress_message PWR-246
 	suppress_message PWR-601
 	suppress_message PWR-602
-	
+	suppress_message PWR-604
 	
 	set start_power [get_attribute [get_design] leakage_power]
 	if {$savings == 0} {
 		#Nothing to do
 		return
-	} elseif {$savings > 0 && $savings <= 0.2} { 
+	} elseif {$savings > 0 && $savings < 1} { 
 		#Compute end power only
 		set end_power [expr $start_power*(1-$savings)]
-	} elseif {$savings > 0.2 && $savings < 1} {
-		#Compute end power and swap all cells into LVT
-                set end_power [expr $start_power*(1-$savings)]
-        	swap_all_lvt
-	} else {
-		#Just swap all cells into LVT
-		swap_all_lvt
 	}
 
 	#Get a list of all cells in descending order of slack
@@ -154,8 +150,10 @@ proc dualVth {args} {
                 }
 	}
 	#Following commands can be deleted for the final version (they are used for control only)
+	set end_time [clock milliseconds]
 	set saved [expr ($start_power - [get_attribute [get_design] leakage_power])/$start_power]
 	puts "Started: $start_power | Ended: [get_attribute [get_design] leakage_power] | Slack: [get_attribute [get_timing_paths] slack] | Saved: $saved"
+	puts "Dynamic: [get_attribute [get_design] dynamic_power] Execution : [expr ($end_time - $start_time)/1000.0] s"
 }
 
 define_proc_attributes dualVth \
@@ -205,21 +203,4 @@ proc alt_lib {cell ref_name} {
 	set alternatives [lsort -dictionary $alternatives]
 	return $alternatives
 }
-
-proc swap_all_lvt {} {
-
-        #Sort list from descending order of slack
-        foreach_in_collection cell [get_cells] {
-                set ref_name [get_attribute $cell ref_name]
-                #Append the reference name ready to be used with swap_cell and size_cell
-                if { [regexp {HS65_LH} $ref_name ] } {
-                	regsub {HS65_LH} $ref_name {CORE65LPLVT/HS65_LL} ref_name
-                	swap_cell $cell CORE65LPLVT_nom_1.20V_25C.db:$ref_name
-		} elseif { [regexp {HS65_LHS} $ref_name ] } {
-                	regsub {HS65_LHS} $ref_name {CORE65LPLVT/HS65_LLS} ref_name
-			swap_cell $cell CORE65LPLVT_nom_1.20V_25C.db:$ref_name
-                }
-        }
-}
-
 
