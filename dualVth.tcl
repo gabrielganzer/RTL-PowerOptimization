@@ -195,4 +195,3 @@ proc alt_lib {cell ref_name} {
 	set alternatives [lsort -dictionary $alternatives]
 	return $alternatives
 }
-
