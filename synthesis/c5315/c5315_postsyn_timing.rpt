@@ -1,0 +1,49 @@
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
+Design : c5315
+Version: O-2018.06-SP4
+Date   : Mon Jun  8 17:47:39 2020
+****************************************
+
+
+  Startpoint: N446 (input port clocked by clk)
+  Endpoint: N8076 (output port clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock clk (rise edge)                0.000000   0.000000
+  clock network delay (ideal)          0.000000   0.000000
+  input external delay                 0.200000   0.200000 f
+  N446 (in)                            0.009344   0.209344 f
+  U924/Z (HS65_LH_IVX9)                0.042800   0.252144 r
+  U1050/Z (HS65_LH_MUX41X9)            0.257704   0.509848 f
+  U553/Z (HS65_LH_IVX7)                0.063592   0.573439 r
+  U673/Z (HS65_LLS_XOR3X4)             0.077449   0.650888 f
+  U960/Z (HS65_LHS_XOR3X2)             0.193753   0.844642 r
+  U893/Z (HS65_LHS_XOR3X2)             0.239068   1.083709 r
+  U688/Z (HS65_LHS_XOR3X2)             0.261983   1.345693 r
+  U536/Z (HS65_LH_OA222X4)             0.267608   1.613301 r
+  U1018/Z (HS65_LH_IVX27)              0.084116   1.697417 f
+  N8076 (out)                          0.000322   1.697739 f
+  data arrival time                               1.697739
+
+  clock clk (rise edge)                2.000000   2.000000
+  clock network delay (ideal)          0.000000   2.000000
+  clock reconvergence pessimism        0.000000   2.000000
+  clock uncertainty                    -0.100000  1.900000
+  output external delay                -0.200000  1.700000
+  data required time                              1.700000
+  ---------------------------------------------------------------
+  data required time                              1.700000
+  data arrival time                               -1.697739
+  ---------------------------------------------------------------
+  slack (MET)                                     0.002261
+
+
+1

@@ -1,0 +1,61 @@
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
+Design : aes_cipher_top
+Version: L-2016.06-SP3-1
+Date   : Mon Feb 19 15:29:43 2018
+****************************************
+
+
+  Startpoint: clk_r_REG432_S2
+               (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: clk_r_REG92_S8
+               (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  ---------------------------------------------------------------
+  clock clk (rise edge)                0.000000   0.000000
+  clock network delay (ideal)          0.050000   0.050000
+  clk_r_REG432_S2/CP (HS65_LS_DFPQX4)  0.000000   0.050000 r
+  clk_r_REG432_S2/Q (HS65_LS_DFPQX4)   0.136487   0.186487 f
+  U18209/Z (HS65_LS_OAI22X1)           0.117639   0.304125 r
+  U18158/Z (HS65_LS_NOR2X2)            0.121091   0.425216 f
+  U17309/Z (HS65_LS_NAND2X2)           0.223131   0.648347 r
+  U14908/Z (HS65_LS_IVX2)              0.255327   0.903674 f
+  U12393/Z (HS65_LS_OAI21X2)           0.100932   1.004605 r
+  U12392/Z (HS65_LS_NAND3X2)           0.081082   1.085687 f
+  U10414/Z (HS65_LS_AOI212X2)          0.092989   1.178676 r
+  U10411/Z (HS65_LS_NAND3X2)           0.105679   1.284355 f
+  U10689/Z (HS65_LS_AO212X4)           0.150272   1.434627 f
+  U10688/Z (HS65_LS_NOR3AX2)           0.065026   1.499653 r
+  U14808/Z (HS65_LS_NAND4ABX3)         0.082607   1.582259 f
+  U16743/Z (HS65_LS_AOI12X2)           0.089582   1.671841 r
+  U16742/Z (HS65_LS_OAI212X3)          0.086554   1.758394 f
+  U9856/Z (HS65_LS_NOR4ABX2)           0.262018   2.020412 r
+  U9960/Z (HS65_LSS_XNOR2X3)           0.258399   2.278812 r
+  U9756/Z (HS65_LSS_XOR2X3)            0.149516   2.428327 r
+  U18716/Z (HS65_LSS_XOR3X2)           0.133610   2.561938 f
+  U18714/Z (HS65_LS_OAI22X1)           0.074167   2.636105 r
+  clk_r_REG92_S8/D (HS65_LS_DFPQX4)    0.000015   2.636119 r
+  data arrival time                               2.636119
+
+  clock clk (rise edge)                5.000000   5.000000
+  clock network delay (ideal)          0.050000   5.050000
+  clock reconvergence pessimism        0.000000   5.050000
+  clock uncertainty                    -0.050000  5.000000
+  clk_r_REG92_S8/CP (HS65_LS_DFPQX4)              5.000000 r
+  library setup time                   -0.080702  4.919298
+  data required time                              4.919298
+  ---------------------------------------------------------------
+  data required time                              4.919298
+  data arrival time                               -2.636119
+  ---------------------------------------------------------------
+  slack (MET)                                     2.283178
+
+
+1

@@ -1,0 +1,32 @@
+****************************************
+Report : Averaged Power
+Design : aes_cipher_top
+Version: L-2016.06-SP3-1
+Date   : Mon Feb 19 15:29:43 2018
+****************************************
+
+
+
+  Attributes
+  ----------
+      i  -  Including register clock pin internal power
+      u  -  User defined power group
+
+                        Internal  Switching  Leakage    Total
+Power Group             Power     Power      Power      Power   (     %)  Attrs
+--------------------------------------------------------------------------------
+clock_network           1.047e-03    0.0000    0.0000 1.047e-03 (28.10%)  i
+register                4.785e-04 5.686e-04 3.665e-07 1.047e-03 (28.11%)  
+combinational           4.991e-04 1.131e-03 1.142e-06 1.632e-03 (43.79%)  
+sequential                 0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+memory                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+io_pad                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+black_box                  0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+
+  Net Switching Power  = 1.700e-03   (45.62%)
+  Cell Internal Power  = 2.025e-03   (54.34%)
+  Cell Leakage Power   = 1.508e-06   ( 0.04%)
+                         ---------
+Total Power            = 3.726e-03  (100.00%)
+
+1

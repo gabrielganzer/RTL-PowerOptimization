@@ -1,0 +1,32 @@
+****************************************
+Report : Averaged Power
+Design : c5315
+Version: O-2018.06-SP4
+Date   : Mon Jun  8 17:47:39 2020
+****************************************
+
+
+
+  Attributes
+  ----------
+      i  -  Including register clock pin internal power
+      u  -  User defined power group
+
+                        Internal  Switching  Leakage    Total
+Power Group             Power     Power      Power      Power   (     %)  Attrs
+--------------------------------------------------------------------------------
+clock_network              0.0000    0.0000    0.0000    0.0000 ( 0.00%)  i
+register                   0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+combinational           1.999e-04 5.728e-04 5.513e-07 7.732e-04 (100.00%) 
+sequential                 0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+memory                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+io_pad                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+black_box                  0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+
+  Net Switching Power  = 5.728e-04   (74.07%)
+  Cell Internal Power  = 1.999e-04   (25.85%)
+  Cell Leakage Power   = 5.513e-07   ( 0.07%)
+                         ---------
+Total Power            = 7.732e-04  (100.00%)
+
+1

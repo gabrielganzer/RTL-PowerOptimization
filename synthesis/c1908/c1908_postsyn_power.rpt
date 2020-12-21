@@ -1,0 +1,32 @@
+****************************************
+Report : Averaged Power
+Design : c1908
+Version: O-2018.06-SP4
+Date   : Mon Jun  8 17:42:56 2020
+****************************************
+
+
+
+  Attributes
+  ----------
+      i  -  Including register clock pin internal power
+      u  -  User defined power group
+
+                        Internal  Switching  Leakage    Total
+Power Group             Power     Power      Power      Power   (     %)  Attrs
+--------------------------------------------------------------------------------
+clock_network              0.0000    0.0000    0.0000    0.0000 ( 0.00%)  i
+register                   0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+combinational           1.591e-04 3.195e-04 4.150e-07 4.789e-04 (100.00%) 
+sequential                 0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+memory                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+io_pad                     0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+black_box                  0.0000    0.0000    0.0000    0.0000 ( 0.00%)  
+
+  Net Switching Power  = 3.195e-04   (66.70%)
+  Cell Internal Power  = 1.591e-04   (33.21%)
+  Cell Leakage Power   = 4.150e-07   ( 0.09%)
+                         ---------
+Total Power            = 4.789e-04  (100.00%)
+
+1
