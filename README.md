@@ -21,8 +21,3 @@ In case the input savings is equal to exactly 1 the script does not perform any 
 ## DOCUMENTATION
 
 The main script file describing the procedure can be found in the *dualVth.tcl* file, refer to *tcl_scripts* folder for other procedures used throughout the project.
-
-## LICENSE
-
-The source code of the project is licensed under the GPLv3 license, unless otherwise stated.
-
