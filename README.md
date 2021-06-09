@@ -3,7 +3,7 @@
 
 ## PROJECT DESCRIPTION
 
-This project consisted of implementing a command for PrimeTime (Synopsys Design Vision) that implements a post-synthesis power minimization procedure. The new command, written in TCL, runs a leakage-constrained dual-Vth cell assignment with gate re-sizing. The constraint function to be minimized is:
+This project consisted of implementing a command for Synopsys® PrimeTime® and DC Ultra™ that implements a post-synthesis power minimization procedure. The new command, written in TCL, runs a leakage-constrained dual-Vth cell assignment with gate re-sizing. The constraint function to be minimized is:
 
 **savings = (start_power - end_power)/start_power**
 
